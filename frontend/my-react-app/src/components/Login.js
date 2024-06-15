@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './LoginPage.css';
-
 
 const Login = () => {
   const [isSeller, setIsSeller] = useState(false);
@@ -33,11 +32,10 @@ const Login = () => {
           <span>{isSeller ? 'Seller' : 'Buyer'}</span>
         </div>
         <button onClick={handleLogin}>Login</button>
+        <p>Don't have an account? <Link to="/signup">Sign up here</Link></p>
       </div>
     </div>
   );
 };
-
-
 
 export default Login;
