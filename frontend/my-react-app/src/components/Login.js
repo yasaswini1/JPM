@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { login } from '../services/api';
-import '../styles/Login.css'; // Optional: Import custom styles
+import '../styles/LoginPage.css'; // Optional: Import custom styles
 
 const Login = () => {
   const [email, setEmail] = useState('');
