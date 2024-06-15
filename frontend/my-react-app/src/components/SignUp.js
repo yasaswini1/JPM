@@ -11,6 +11,7 @@ import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
+import Switch from '@mui/material/Switch';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 function Copyright(props) {
@@ -26,18 +27,25 @@ function Copyright(props) {
   );
 }
 
-// TODO remove, this demo shouldn't need to reset the theme.
-
 const defaultTheme = createTheme();
 
 export default function SignUp() {
+  const [isSeller, setIsSeller] = React.useState(false); // State to manage seller/buyer toggle
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
+      firstName: data.get('firstName'),
+      lastName: data.get('lastName'),
       email: data.get('email'),
       password: data.get('password'),
+      isSeller: isSeller // Include the selected role in form data
     });
+  };
+
+  const handleRoleToggle = () => {
+    setIsSeller(!isSeller); // Toggle between seller and buyer
   };
 
   return (
@@ -106,6 +114,19 @@ export default function SignUp() {
                 <FormControlLabel
                   control={<Checkbox value="allowExtraEmails" color="primary" />}
                   label="I want to receive inspiration, marketing promotions and updates via email."
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <FormControlLabel
+                  control={
+                    <Switch
+                      checked={isSeller}
+                      onChange={handleRoleToggle}
+                      name="isSeller"
+                      color="primary"
+                    />
+                  }
+                  label={isSeller ? "I'm a Seller" : "I'm a Buyer"}
                 />
               </Grid>
             </Grid>
