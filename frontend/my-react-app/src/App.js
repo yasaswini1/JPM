@@ -3,8 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './components/Login';
 import SellerPage from './components/SellerPage';
 import BuyerPage from './components/BuyerPage';
-
-import '../styles/LoginPage.css';
+// other imports as needed
 
 
 const App = () => {
@@ -12,11 +11,16 @@ const App = () => {
     <Router>
       <div className="App">
         <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/seller" element={<SellerPage />} />
-          <Route path="/buyer" element={<BuyerPage />} />
+          <Route exact path="/" element={<Login />} />
+          {/* <Route path="/dashboard" element={<Dashboard />} />
+          Add other routes as needed */}
         </Routes>
       </div>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/seller" element={<SellerPage />} />
+        <Route path="/buyer" element={<BuyerPage />} />
+      </Routes>
     </Router>
   );
 };

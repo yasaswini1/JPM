@@ -1,0 +1,15 @@
+.product-grid {
+    display: flex;
+    gap: 20px; /* Adjust gap between product cards */
+    overflow-x: auto; /* Enable horizontal scrolling if needed */
+  }
+  
+  .product-card {
+    flex: 0 0 auto; /* Allow flex items to shrink, but not grow */
+    width: 300px; /* Adjust width of each product card */
+    border: 1px solid #ccc; /* Example border style */
+    border-radius: 8px; /* Rounded corners */
+    padding: 16px; /* Example padding */
+    /* Add other product card styles */
+  }
+  

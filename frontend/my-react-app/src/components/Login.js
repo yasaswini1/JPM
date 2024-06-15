@@ -1,52 +1,45 @@
-// src/components/Login.js
 import React, { useState } from 'react';
+<<<<<<< HEAD
 import { useNavigate } from 'react-router-dom';
 import { login } from '../services/api';
 import '../styles/LoginPage.css'; // Optional: Import custom styles
+=======
+import { Link, useNavigate } from 'react-router-dom';
+import './LoginPage.css';
+>>>>>>> b23fbf74739454bba46eb4b43c09e290d8dafa8d
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-  const navigate = useNavigate(); // Replace useHistory with useNavigate
+  const [isSeller, setIsSeller] = useState(false);
+  const navigate = useNavigate();
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await login(email, password);
-      // Save the token or user data as required
-      localStorage.setItem('token', response.data.token);
-      navigate('/dashboard');
-    } catch (err) {
-      setError('Invalid email or password');
+  const handleLogin = () => {
+    if (isSeller) {
+      navigate('/seller');
+    } else {
+      navigate('/buyer');
     }
   };
 
   return (
-    <div className="login-container">
-      <h2>Login</h2>
-      <form onSubmit={handleLogin}>
-        <div>
-          <label>Email:</label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
+    <div className="login-page">
+      <div className="login-form">
+        <h2>{isSeller ? 'Seller Login' : 'Buyer Login'}</h2>
+        <input type="text" placeholder="Username" />
+        <input type="password" placeholder="Password" />
+        <div className="toggle-container">
+          <label className="switch">
+            <input 
+              type="checkbox" 
+              checked={isSeller} 
+              onChange={() => setIsSeller(!isSeller)} 
+            />
+            <span className="slider round"></span>
+          </label>
+          <span>{isSeller ? 'Seller' : 'Buyer'}</span>
         </div>
-        <div>
-          <label>Password:</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        {error && <p style={{ color: 'red' }}>{error}</p>}
-        <button type="submit">Login</button>
-      </form>
+        <button onClick={handleLogin}>Login</button>
+        <p>Don't have an account? <Link to="/signup">Sign up here</Link></p>
+      </div>
     </div>
   );
 };
