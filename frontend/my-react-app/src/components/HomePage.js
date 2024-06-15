@@ -2,6 +2,21 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './HomePage.css'; // Import your home page CSS here
 
+import FeaturedProducts from './FeaturedProducts'; // Adjust path based on your project structure
+
+const products = [
+  { id: 1, name: 'Product 1', image: '/path/to/image1.jpg', description: 'Description of Product 1' },
+  { id: 2, name: 'Product 2', image: '/path/to/image2.jpg', description: 'Description of Product 2' },
+  { id: 3, name: 'Product 3', image: '/path/to/image3.jpg', description: 'Description of Product 3' },
+  { id: 4, name: 'Product 4', image: '/path/to/image4.jpg', description: 'Description of Product 4' },
+  { id: 5, name: 'Product 5', image: '/path/to/image5.jpg', description: 'Description of Product 5' },
+  { id: 6, name: 'Product 6', image: '/path/to/image6.jpg', description: 'Description of Product 6' },
+  { id: 7, name: 'Product 7', image: '/path/to/image7.jpg', description: 'Description of Product 7' },
+  { id: 8, name: 'Product 8', image: '/path/to/image8.jpg', description: 'Description of Product 8' },
+  { id: 9, name: 'Product 9', image: '/path/to/image9.jpg', description: 'Description of Product 9' },
+  { id: 10, name: 'Product 10', image: '/path/to/image10.jpg', description: 'Description of Product 10' },
+];
+
 const HomePage = () => {
   return (
     <div className="home-page">
@@ -39,6 +54,7 @@ const HomePage = () => {
       </section>
 
       {/* Featured Products Section */}
+      <FeaturedProducts products={products} />
       <section className="featured-products">
         <h2>Featured Products</h2>
         <div className="product-grid">
