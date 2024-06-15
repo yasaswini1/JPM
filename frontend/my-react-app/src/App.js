@@ -5,6 +5,7 @@ import Signup from './components/Signup';
 import SellerPage from './components/SellerPage'; // Example seller page component
 import BuyerPage from './components/BuyerPage';   // Example buyer page component
 import HomePage from './components/HomePage';     // New home page component
+import AboutUs from './components/AboutUs';
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
         <Route path="/signup" element={<Signup />} />
         <Route path="/seller" element={<SellerPage />} />
         <Route path="/buyer" element={<BuyerPage />} />
+        <Route path="/about" element={<AboutUs />} />
         {/* Add more routes as needed */}
       </Routes>
     </Router>

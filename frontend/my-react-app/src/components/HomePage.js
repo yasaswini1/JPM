@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './HomePage.css'; // Import your home page CSS here
+import logo from '../components/images/logo.jpeg';
 
 import FeaturedProducts from './FeaturedProducts'; // Adjust path based on your project structure
 
@@ -24,8 +25,8 @@ const HomePage = () => {
       <header className="header">
         <div className="logo">
           {/* Replace with your logo */}
-          {/* <img src="/path/to/logo.png" alt="Platform Logo" /> */}
-          <h2>Platform Logo</h2>
+          <img src={logo} alt="Tara Foundation" className="logo-img" />
+          <h2>Tara Foundation</h2>
         </div>
         <nav className="navigation">
           <ul>
